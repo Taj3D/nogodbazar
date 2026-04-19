@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>নগদ বাজার | সামার বেস্ট রেমি কটন ট্রাউজার</title>
+    <!-- Google Fonts (Bengali) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Hind Siliguri', sans-serif; background: #fefefe; color: #2c3e50; }
+        .container { max-width: 1200px; margin: auto; padding: 0 20px; }
+        .top-bar { background: #1e272e; color: #fff; padding: 10px 0; }
+        .top-bar .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        .contact-info i { margin-right: 6px; color: #f39c12; }
+        .social-links a { color: #fff; margin-left: 15px; transition: 0.3s; }
+        .social-links a:hover { color: #f39c12; }
+        .main-header { background: #fff; padding: 20px 0; box-shadow: 0 2px 12px rgba(0,0,0,0.04); }
+        .main-header .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        .logo h1 { font-size: 32px; font-weight: 700; color: #1e272e; }
+        .logo span { color: #e67e22; }
+        .bkash-nagad { background: #f1f2f6; padding: 8px 16px; border-radius: 40px; font-weight: 600; }
+        .hero { background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('https://images.pexels.com/photos/1598507/pexels-photo-1598507.jpeg') center/cover; color: #fff; padding: 70px 0; text-align: center; }
+        .btn { display: inline-block; background: #e67e22; color: #fff; padding: 14px 34px; border-radius: 50px; text-decoration: none; font-weight: 600; border: none; cursor: pointer; transition: 0.3s; }
+        .btn-outline { background: transparent; border: 2px solid #fff; margin-left: 15px; }
+        .btn-outline:hover { background: #fff; color: #1e272e; }
+        .btn:hover { background: #d35400; }
+        .offer-banner { background: #f39c12; padding: 18px; text-align: center; font-weight: 700; font-size: 22px; }
+        .offer-banner span { background: #1e272e; color: #f39c12; padding: 4px 16px; border-radius: 40px; margin: 0 6px; }
+        .product-section { padding: 60px 0; }
+        .section-title { text-align: center; font-size: 34px; margin-bottom: 20px; }
+        .section-title:after { content: ''; display: block; width: 100px; height: 3px; background: #e67e22; margin: 15px auto; }
+        .product-description { text-align: center; max-width: 800px; margin: 0 auto 40px; color: #555; }
+        .slider-container { position: relative; max-width: 600px; margin: 0 auto 40px; border-radius: 20px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+        .slider { display: flex; transition: transform 0.5s ease; }
+        .slide { min-width: 100%; height: 350px; }
+        .slide img { width: 100%; height: 100%; object-fit: cover; }
+        .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: #fff; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 20px; }
+        .prev { left: 15px; } .next { right: 15px; }
+        .dots { text-align: center; margin-top: 15px; }
+        .dot { display: inline-block; width: 12px; height: 12px; background: #bbb; border-radius: 50%; margin: 0 5px; cursor: pointer; }
+        .dot.active { background: #e67e22; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+        .product-card { border: 1px solid #ecf0f1; border-radius: 16px; overflow: hidden; background: #fff; transition: 0.3s; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
+        .product-img { height: 240px; background: #f8f9fa; display: flex; align-items: center; justify-content: center; }
+        .product-img img { width: 100%; height: 100%; object-fit: cover; }
+        .product-info { padding: 20px; }
+        .price { color: #e67e22; font-size: 24px; font-weight: 700; margin: 10px 0; }
+        .quantity-selector { display: flex; align-items: center; gap: 8px; margin: 15px 0; }
+        .quantity-selector button { background: #ddd; border: none; width: 32px; height: 32px; border-radius: 8px; font-size: 20px; cursor: pointer; }
+        .quantity-selector input { width: 60px; text-align: center; border: 1px solid #ccc; border-radius: 8px; padding: 6px; }
+        .order-btn { width: 100%; background: #1e272e; color: #fff; border: none; padding: 14px; border-radius: 40px; font-weight: 600; cursor: pointer; transition: 0.3s; }
+        .order-btn:hover { background: #e67e22; }
+        .size-guide { background: #f8f9fa; padding: 40px 0; }
+        .size-table { max-width: 700px; margin: auto; border-collapse: collapse; width: 100%; background: #fff; border-radius: 16px; overflow: hidden; }
+        .size-table th, .size-table td { padding: 14px 20px; border-bottom: 1px solid #eee; text-align: center; }
+        .size-table th { background: #1e272e; color: #fff; }
+        .bulk-offer { background: #fff3e0; padding: 25px; border-radius: 20px; margin: 40px 0; display: flex; justify-content: space-around; flex-wrap: wrap; }
+        .offer-item { font-weight: 700; font-size: 20px; }
+        .order-section { padding: 60px 0; background: #fff; }
+        .order-form { max-width: 700px; margin: auto; background: #f8fafc; padding: 35px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .form-group { margin-bottom: 22px; }
+        .form-group label { font-weight: 500; display: block; margin-bottom: 8px; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 14px 16px; border: 1px solid #dcdde1; border-radius: 14px; font-family: inherit; }
+        .shipping-option { background: #fff; padding: 15px; border-radius: 14px; margin: 20px 0; border: 1px solid #eee; }
+        .total-preview { background: #1e272e; color: #fff; padding: 18px; border-radius: 16px; text-align: right; font-size: 22px; }
+        .btn-large { width: 100%; padding: 18px; font-size: 20px; }
+        .contact-section { background: #1e272e; color: #ecf0f1; padding: 50px 0; }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; }
+        .contact-section h3 { color: #f39c12; margin-bottom: 18px; }
+        .contact-section i { width: 24px; color: #f39c12; }
+        .social-links-large a { color: #fff; background: #2c3e50; width: 44px; height: 44px; display: inline-block; text-align: center; line-height: 44px; border-radius: 50%; margin-right: 10px; }
+        footer { background: #0f1519; color: #aaa; padding: 20px; text-align: center; }
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: #fff; width: 60px; height: 60px; border-radius: 50%; text-align: center; font-size: 32px; line-height: 60px; box-shadow: 0 6px 16px rgba(0,0,0,0.2); z-index: 999; }
+        @media (max-width: 768px) {
+            .main-header .container { flex-direction: column; gap: 15px; }
+            .hero h2 { font-size: 32px; }
+            .offer-banner { font-size: 18px; }
+            .slide { height: 250px; }
+        }
+    </style>
+    <!-- Meta Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1453977572442065');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1453977572442065&ev=PageView&noscript=1"/></noscript>
+    <!-- End Meta Pixel Code -->
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <span><i class="fas fa-phone-alt"></i> +880 1973-135466</span>
+                <span><i class="fas fa-envelope"></i> nadadbazar@gmail.com</span>
+            </div>
+            <div class="social-links">
+                <a href="https://youtube.com/@FintaxEdegeTV" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.facebook.com/NogodBazar1" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <h1>নগদ <span>বাজার</span></h1>
+                <p style="font-size:14px;">Shamshan Market, RajarHat More, Jashore</p>
+            </div>
+            <div class="payment-methods">
+                <span class="bkash-nagad"><i class="fas fa-mobile-alt"></i> বিকাশ/নগদ: ০১৭১১৭৩১৩৫৪</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>গরমে সব থেকে আরামদায়ক সুতি কাপড়ের ট্রাউজার</h2>
+            <p>✅ কালার ব্লিড হবে না ✅ আরামদায়ক ফেব্রিক ✅ রেমি কটন ফেব্রিক্স</p>
+            <a href="#products" class="btn">অর্ডার করতে চাই</a>
+            <a href="#order" class="btn btn-outline">ফর্ম পূরণ করুন</a>
+        </div>
+    </section>
+
+    <!-- Offer Banner -->
+    <div class="offer-banner">
+        🔥 অফার মূল্য মাত্র: <span>১ পিস ৬৯০ টাকা</span> <span>২ পিস ১২৫০ টাকা</span> <span>৩ পিস ১৭৫০ টাকা</span>
+    </div>
+
+    <!-- Product Slider -->
+    <section class="product-section" style="padding-bottom: 0;">
+        <div class="container">
+            <h2 class="section-title">আমাদের প্রোডাক্ট গ্যালারি</h2>
+            <div class="slider-container" id="productSlider">
+                <div class="slider" id="slider"></div>
+                <button class="slider-btn prev" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+                <button class="slider-btn next" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+                <div class="dots" id="dotsContainer"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Grid -->
+    <section id="products" class="product-section">
+        <div class="container">
+            <h2 class="section-title">সামার বেস্ট রেমি কটন ট্রাউজার</h2>
+            <div class="product-description">
+                <p><strong>REMI COTTON FABRICS – 100% COTTON – Export Quality</strong><br>
+                স্ট্যান্ডার্ড এশিয়ান প্যাটার্ন ও মেজারমেন্ট। কালার ব্লিড হবে না। বাসায় চলাফেরা বা বিশ্রামের জন্য Best for regular use.</p>
+            </div>
+            <div class="product-grid" id="productGrid"></div>
+            <div class="bulk-offer">
+                <div class="offer-item"><i class="fas fa-tag"></i> ১ পিস = ৬৯০ টাকা</div>
+                <div class="offer-item"><i class="fas fa-tags"></i> ২ পিস = ১২৫০ টাকা</div>
+                <div class="offer-item"><i class="fas fa-gem"></i> ৩ পিস = ১৭৫০ টাকা</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Size Guide -->
+    <section class="size-guide">
+        <div class="container">
+            <h3 class="section-title">সাইজ গাইড</h3>
+            <table class="size-table">
+                <tr><th>SIZE (সাইজ)</th><th>কোমর (ইঞ্চি)</th><th>লেন্থ (ইঞ্চি)</th></tr>
+                <tr><td>L</td><td>30-32</td><td>39.5</td></tr>
+                <tr><td>XL</td><td>33-34</td><td>40.5</td></tr>
+                <tr><td>2XL</td><td>35-36</td><td>41</td></tr>
+                <tr><td>3XL</td><td>37-38</td><td>41.5</td></tr>
+                <tr><td>4XL</td><td>40-44</td><td>42.5</td></tr>
+            </table>
+            <p style="text-align:center; margin-top:20px;">স্ট্যান্ডার্ড এশিয়ান প্যাটার্ন ও মেজারমেন্ট | ইউনিক ডিজাইন</p>
+        </div>
+    </section>
+
+    <!-- Order Form -->
+    <section id="order" class="order-section">
+        <div class="container">
+            <h2 class="section-title">অর্ডার ফর্ম</h2>
+            <div class="order-form">
+                <form id="mainOrderForm">
+                    <div class="form-group"><label>পণ্যের নাম</label><input type="text" id="orderProductName" readonly style="background:#eee;"></div>
+                    <div class="form-group"><label>আপনার নাম *</label><input type="text" id="custName" placeholder="আপনার নাম" required></div>
+                    <div class="form-group"><label>আপনার সম্পূর্ণ ঠিকানা *</label><textarea rows="2" id="custAddress" placeholder="বাড়ি/রোড/থানা/জেলা" required></textarea></div>
+                    <div class="form-group"><label>আপনার ফোন নাম্বার *</label><input type="tel" id="custPhone" placeholder="01XXXXXXXXX" required></div>
+                    <div class="form-group"><label>আপনার সাইজ সিলেক্ট করুন (optional)</label><select id="custSize"><option value="">-- সাইজ বাছাই --</option><option>L</option><option>XL</option><option>2XL</option><option>3XL</option><option>4XL</option></select></div>
+                    <div class="form-group"><label>পণ্যের পরিমাণ (পিস)</label><input type="number" id="orderQty" value="1" min="1" required></div>
+                    <div class="shipping-option">
+                        <p><strong>শিপিং চার্জ:</strong></p>
+                        <label><input type="radio" name="shipping" value="70" checked> ঢাকার মধ্যে: 70.00৳</label><br>
+                        <label><input type="radio" name="shipping" value="130"> ঢাকার বাইরে: 130.00৳</label>
+                    </div>
+                    <div class="total-preview"><span id="totalDisplayText">মোট: 760.00৳</span></div>
+                    <p style="font-size:14px; margin: 10px 0;">✔ ক্যাশ অন ডেলিভারি</p>
+                    <p style="font-size:13px; color:#e67e22;">(কোন কারণে পছন্দ না হলে ডেলিভারি ফি প্রদান করে রিটার্ন করতে পারবেন।)</p>
+                    <button type="submit" class="btn btn-large">অর্ডার করুন <span id="finalAmount">760.00৳</span></button>
+                </form>
+                <p style="margin-top:20px;">বিস্তারিত জানতে কল করুন: <strong>+880 1973-135466</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Footer -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div>
+                    <h3>ঠিকানা</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Shamshan Market, RajarHat More, Jashore Sador, Jessore</p>
+                    <p><i class="fas fa-phone"></i> +880 1973-135466</p>
+                    <p><i class="fas fa-envelope"></i> nadadbazar@gmail.com</p>
+                </div>
+                <div>
+                    <h3>পেমেন্ট</h3>
+                    <p><i class="fas fa-mobile-alt"></i> বিকাশ / নগদ: ০১৭১১৭৩১৩৫৪</p>
+                </div>
+                <div>
+                    <h3>সোশ্যাল মিডিয়া</h3>
+                    <div class="social-links-large">
+                        <a href="https://youtube.com/@FintaxEdegeTV" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/NogodBazar1" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">© 2025 নগদ বাজার | সর্বশেষ আপডেট পেতে আমাদের সাথে সংযুক্ত থাকুন</div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/8801973135466" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+    <script>
+        // পণ্যের তথ্য (ছবি পরিবর্তন নির্দেশনা অনুযায়ী)
+        const products = [
+            { name: 'Summer Best Remi Cotton Trouser', img: 'https://i.ibb.co/SDsFqTCv/7.jpg', id: 'p0' },
+            { name: 'Summer Best Remi Cotton Trouser (Olive)', img: 'https://i.ibb.co/wFgY7pS1/5.jpg', id: 'p1' },
+            { name: 'Summer Best Remi Cotton Trouser (Black)', img: 'https://i.ibb.co/v62hB4mh/3.jpg', id: 'p2' },
+            { name: 'Summer Best Remi Cotton Trouser (Khaki)', img: 'https://i.ibb.co/2Yk7Y6bp/4.jpg', id: 'p3' },
+            { name: 'Summer Best Remi Cotton Trouser (ASH)', img: 'https://i.ibb.co/TDSm1pxb/1.jpg', id: 'p4' },
+            { name: 'Summer Best Remi Cotton Trouser (Buiskit)', img: 'https://i.ibb.co/xqcv5dbw/2.jpg', id: 'p5' },
+            { name: 'Summer Best Remi Cotton Trouser (Sky Blue)', img: 'https://i.ibb.co/TMcPZMCB/6.jpg', id: 'p6' }
+        ];
+
+        // বাল্ক মূল্য নির্ধারণ ফাংশন
+        function getSubtotal(qty) {
+            const q = parseInt(qty) || 1;
+            if (q === 1) return 690;
+            if (q === 2) return 1250;
+            if (q === 3) return 1750;
+            if (q > 3) return 1750 + (q - 3) * 600;
+            return 690;
+        }
+
+        // স্লাইডার তৈরি
+        const slider = document.getElementById('slider');
+        const dotsDiv = document.getElementById('dotsContainer');
+        products.forEach((prod, i) => {
+            const slide = document.createElement('div');
+            slide.className = 'slide';
+            slide.innerHTML = `<img src="${prod.img}" alt="${prod.name}">`;
+            slider.appendChild(slide);
+            const dot = document.createElement('span');
+            dot.className = 'dot' + (i === 0 ? ' active' : '');
+            dot.dataset.index = i;
+            dot.addEventListener('click', () => goToSlide(i));
+            dotsDiv.appendChild(dot);
+        });
+
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        function goToSlide(index) {
+            currentSlide = (index + slides.length) % slides.length;
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            dots.forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+        }
+        document.getElementById('prevBtn').addEventListener('click', () => goToSlide(currentSlide - 1));
+        document.getElementById('nextBtn').addEventListener('click', () => goToSlide(currentSlide + 1));
+        setInterval(() => goToSlide(currentSlide + 1), 4000);
+
+        // প্রোডাক্ট কার্ড তৈরি
+        const grid = document.getElementById('productGrid');
+        products.forEach(prod => {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.innerHTML = `
+                <div class="product-img"><img src="${prod.img}" alt="${prod.name}"></div>
+                <div class="product-info">
+                    <h3>${prod.name.includes('(') ? prod.name.split('(')[1].replace(')','') : 'Original'}</h3>
+                    <div class="price" id="price_${prod.id}">690.00৳</div>
+                    <div class="quantity-selector">
+                        <button class="decr-btn">−</button>
+                        <input type="number" value="1" min="1" class="item-qty" id="qty_${prod.id}" readonly>
+                        <button class="incr-btn">+</button>
+                    </div>
+                    <button class="order-btn order-now-btn">অর্ডার করতে চাই</button>
+                </div>
+            `;
+            grid.appendChild(card);
+
+            const qtyInput = card.querySelector('.item-qty');
+            const priceSpan = card.querySelector('.price');
+            
+            function updateCardPrice() {
+                const qty = parseInt(qtyInput.value) || 1;
+                priceSpan.textContent = getSubtotal(qty) + '.00৳';
+            }
+
+            card.querySelector('.incr-btn').addEventListener('click', () => {
+                let val = parseInt(qtyInput.value) + 1;
+                qtyInput.value = val;
+                updateCardPrice();
+            });
+            card.querySelector('.decr-btn').addEventListener('click', () => {
+                let val = parseInt(qtyInput.value);
+                if (val > 1) val--;
+                qtyInput.value = val;
+                updateCardPrice();
+            });
+
+            card.querySelector('.order-now-btn').addEventListener('click', () => {
+                document.getElementById('orderProductName').value = prod.name;
+                document.getElementById('orderQty').value = qtyInput.value;
+                calculateTotal();
+                document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
+                fbq('track', 'AddToCart', {
+                    content_name: prod.name,
+                    content_type: 'product',
+                    quantity: qtyInput.value,
+                    currency: 'BDT',
+                    value: getSubtotal(qtyInput.value)
+                });
+            });
+
+            updateCardPrice();
+        });
+
+        // অর্ডার ফর্মের মোট হিসাব
+        const qtyField = document.getElementById('orderQty');
+        const shippingRadios = document.getElementsByName('shipping');
+        const totalSpan = document.getElementById('totalDisplayText');
+        const finalSpan = document.getElementById('finalAmount');
+
+        function calculateTotal() {
+            let qty = parseInt(qtyField.value) || 1;
+            let shipping = 70;
+            for (let r of shippingRadios) if (r.checked) shipping = parseInt(r.value);
+            let subtotal = getSubtotal(qty);
+            let total = subtotal + shipping;
+            totalSpan.textContent = `মোট: ${total}.00৳`;
+            finalSpan.textContent = `${total}.00৳`;
+            return total;
+        }
+
+        qtyField.addEventListener('input', calculateTotal);
+        shippingRadios.forEach(r => r.addEventListener('change', calculateTotal));
+        calculateTotal();
+
+        // SheetDB API এন্ডপয়েন্ট
+        const SHEETDB_URL = 'https://sheetdb.io/api/v1/g4o22jg7kht3j';
+
+        // ফর্ম সাবমিট হ্যান্ডলার
+        document.getElementById('mainOrderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const product = document.getElementById('orderProductName').value || 'রেমি কটন ট্রাউজার';
+            const name = document.getElementById('custName').value.trim();
+            const address = document.getElementById('custAddress').value.trim();
+            const phone = document.getElementById('custPhone').value.trim();
+            const size = document.getElementById('custSize').value || 'সাইজ উল্লেখ নেই';
+            const qty = qtyField.value;
+            const shipping = document.querySelector('input[name="shipping"]:checked').value;
+            const shippingText = (shipping === '70') ? 'ঢাকার মধ্যে' : 'ঢাকার বাইরে';
+            const total = calculateTotal();
+
+            if (!/^01[0-9]{9}$/.test(phone)) {
+                alert('সঠিক মোবাইল নম্বর দিন (01XXXXXXXXX)');
+                return;
+            }
+
+            // SheetDB-তে ডাটা পাঠানোর অবজেক্ট
+            const orderData = {
+                Timestamp: new Date().toLocaleString('bn-BD'),
+                Product: product,
+                Name: name,
+                Phone: phone,
+                Address: address,
+                Size: size,
+                Quantity: qty,
+                Shipping: shippingText,
+                Total: total + ' টাকা'
+            };
+
+            // Google Sheets এ ডাটা পাঠানো
+            fetch(SHEETDB_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ data: [orderData] })
+            })
+            .then(response => response.json())
+            .then(() => {
+                // WhatsApp মেসেজ
+                const msg = `নতুন অর্ডার:%0Aপণ্য: ${product}%0Aনাম: ${name}%0Aফোন: ${phone}%0Aঠিকানা: ${address}%0Aসাইজ: ${size}%0Aপরিমাণ: ${qty} পিস%0Aশিপিং: ${shippingText}%0Aমোট: ${total} টাকা`;
+                window.open(`https://wa.me/8801973135466?text=${msg}`, '_blank');
+                
+                alert('অর্ডার সফলভাবে জমা হয়েছে!');
+                this.reset();
+                document.getElementById('orderProductName').value = '';
+                qtyField.value = 1;
+                calculateTotal();
+            })
+            .catch(error => {
+                console.error('SheetDB Error:', error);
+                alert('অর্ডার জমা দিতে সমস্যা হয়েছে। অনুগ্রহ করে আমাদের ফোন করুন।');
+            });
+        });
+    </script>
+</body>
+</html>
